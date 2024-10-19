@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple Calorie Counter</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Calorie Counter</h1>
+        <h2 id="output" class="output">0</h2>
+        <div class="inputButtonContainer">
+            <button id="addToggle" class="inputButton" onclick="toggleAdd()">+</button>
+            <button id="subtractToggle" class="inputButton" onclick="toggleAdd()">-</button>
+
+        </div>
+        <div class="inputButtonContainer">
+            <button class="inputButton" onclick="incrementCounter(5)">5</button>
+            <button class="inputButton" onclick="incrementCounter(10)">10</button>
+        </div>
+        <div class="inputButtonContainer">
+            <button class="inputButton" onclick="incrementCounter(25)">25</button>
+            <button class="inputButton" onclick="incrementCounter(50)">50</button>
+        </div>
+        <div class="inputButtonContainer">
+            <button class="inputButton" onclick="incrementCounter(100)">100</button>
+            <button class="inputButton" onclick="incrementCounter(150)">150</button>
+        </div>
+        <div class="inputButtonContainer">
+            <button class="inputButton" onclick="incrementCounter(200)">200</button>
+            <button class="inputButton" onclick="incrementCounter(300)">300</button>
+        </div>
+        <button class="inputButton" onclick="resetCounter()">Reset</button>
+        <footer><em>Saves the count with a cookie.</em></footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

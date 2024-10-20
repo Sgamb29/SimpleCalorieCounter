@@ -25,5 +25,11 @@ html, body {
     padding: 8px;
     font-size: x-large;
     border-radius: 25%;
+    border: solid 1px black;
     background-color:cadetblue;
+}
+
+.inputButton:active {
+    font-size: xx-large;
+    background-color: lightcyan;
 }

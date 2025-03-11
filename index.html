@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Simple Calorie Counter</h1>
-        <a href="../../index.html">More Apps</a>
+        <a href="https://sgambapps.com">More Apps</a>
         <h2 id="output" class="output">0</h2>
         <div class="inputButtonContainer">
             <button id="addToggle" class="inputButton" onclick="toggleAdd()">+</button>
@@ -33,6 +33,12 @@
             <button class="inputButton" onclick="incrementCounter(200)">200</button>
             <button class="inputButton" onclick="incrementCounter(300)">300</button>
         </div>
+        <div class="inputButtonContainer">
+            <button id="mealButton" class="inputButton" onclick="addMeal()">Meals: 0</button>
+            <button id="snackButton" class="inputButton" onclick="addSnack()">Snacks: 0</button>
+        </div>
+        <label id="proteinLabel" for="proteinRange">Protein: 0</label>
+        <input id="proteinRange" name="proteinRange" type="range" value="0" min="0" max="150">
         <button class="inputButton" onclick="resetCounter()">Reset</button>
         <footer><em>Saves the count with a cookie.</em></footer>
 

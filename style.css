@@ -19,6 +19,7 @@ html, body {
     display: flex;
     flex-direction: row;
     column-count: 2;
+    justify-content: center;
 }
 
 .inputButton {
@@ -42,4 +43,8 @@ html, body {
 
 label {
     font-size: large;
+}
+
+.proteinSlideContainer {
+    width: 80%;
 }

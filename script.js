@@ -61,10 +61,22 @@ const proteinInput = document.getElementById("proteinRange");
 const proteinLabel = document.getElementById("proteinLabel");
 
 proteinInput.addEventListener("input", (e) => {
-    proteinCount = e.target.value;
+    proteinCount = parseInt(e.target.value);
     proteinLabel.innerText = "Protein: " + proteinCount.toString();
     setCookie("protein", proteinCount, 10000);
 })
+
+function addToProtein(num) {
+    if (num < 0 && proteinCount === 0) {
+        return;
+    }
+    if (num > 0 && proteinCount === 150) {
+        return;
+    }
+    proteinCount += parseInt(num);
+    updateValues();
+    setCookie("protein", proteinCount, 10000);
+}
 
 function updateValues() {
     document.getElementById("mealButton").innerText = "Meals: " + mealCount.toString();
@@ -111,7 +123,7 @@ function getCookie(name) {
         
 }
 
-// Traffic
+// // Traffic
 const request = new Request("https://server.sgambapps.com/?site=simpleCalories", {
     method: "POST",
 });

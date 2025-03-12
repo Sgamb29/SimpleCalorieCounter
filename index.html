@@ -38,7 +38,11 @@
             <button id="snackButton" class="inputButton" onclick="addSnack()">Snacks: 0</button>
         </div>
         <label id="proteinLabel" for="proteinRange">Protein: 0</label>
-        <input id="proteinRange" name="proteinRange" type="range" value="0" min="0" max="150">
+        <div class="inputButtonContainer proteinSlideContainer">
+            <button class="inputButton proteinButton" onclick="addToProtein(-1)">-</button>
+            <input id="proteinRange" name="proteinRange" type="range" value="0" min="0" max="150">
+            <button class="inputButton proteinButton" onclick="addToProtein(1)">+</button>
+        </div>
         <button class="inputButton" onclick="resetCounter()">Reset</button>
         <footer><em>Saves the count with a cookie.</em><br><a target="_blank" href="https://www.calculator.net/calorie-calculator.html">Calculate Daily Calorie Needs</a></footer>
 

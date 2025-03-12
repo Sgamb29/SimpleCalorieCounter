@@ -53,7 +53,7 @@ function addMeal() {
 
 function addSnack() {
     snackCount += toAdd ? 1 : -1;
-    document.getElementById("snackButton").innerText = "Snack: " + snackCount.toString();
+    document.getElementById("snackButton").innerText = "Snacks: " + snackCount.toString();
     setCookie("snacks", snackCount, 10000);
 }
 
@@ -68,7 +68,7 @@ proteinInput.addEventListener("input", (e) => {
 
 function updateValues() {
     document.getElementById("mealButton").innerText = "Meals: " + mealCount.toString();
-    document.getElementById("snackButton").innerText = "Snack: " + snackCount.toString();
+    document.getElementById("snackButton").innerText = "Snacks: " + snackCount.toString();
     proteinLabel.innerText = "Protein: " + proteinCount.toString();
     proteinInput.value = proteinCount;
     output.innerText = currentCount;

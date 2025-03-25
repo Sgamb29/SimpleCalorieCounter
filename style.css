@@ -48,3 +48,7 @@ label {
 .proteinSlideContainer {
     width: 80%;
 }
+
+.output {
+    margin-bottom: 3px;
+}

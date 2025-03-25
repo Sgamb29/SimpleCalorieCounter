@@ -12,6 +12,7 @@
         <h1>Simple Calorie Counter</h1>
         <a href="https://sgambapps.com">More Apps</a>
         <h2 id="output" class="output">0</h2>
+        <h3 id="goalOutput" class="output">2000 calories left</h3>
         <div class="inputButtonContainer">
             <button id="addToggle" class="inputButton" onclick="toggleAdd()">+</button>
             <button id="subtractToggle" class="inputButton" onclick="toggleAdd()">-</button>
@@ -33,9 +34,12 @@
             <button class="inputButton" onclick="incrementCounter(200)">200</button>
             <button class="inputButton" onclick="incrementCounter(300)">300</button>
         </div>
-        <div class="inputButtonContainer">
-            <button id="mealButton" class="inputButton" onclick="addMeal()">Meals: 0</button>
-            <button id="snackButton" class="inputButton" onclick="addSnack()">Snacks: 0</button>
+        <label for="servingsButtons">Servings: </label>
+        <div class="inputButtonContainer" name="servingsButtons">
+            <button id="vegButton" class="inputButton" onclick="addVeg()">Veg: 0</button>
+            <button id="fruitButton" class="inputButton" onclick="addFruit()">Fruit: 0</button>
+            <button id="grainButton" class="inputButton" onclick="addGrain()">Grains: 0</button>
+
         </div>
         <label id="proteinLabel" for="proteinRange">Protein: 0</label>
         <div class="inputButtonContainer proteinSlideContainer">
@@ -43,7 +47,10 @@
             <input id="proteinRange" name="proteinRange" type="range" value="0" min="0" max="150">
             <button class="inputButton proteinButton" onclick="addToProtein(1)">+</button>
         </div>
-        <button class="inputButton" onclick="resetCounter()">Reset</button>
+        <div class="inputButtonContainer">
+            <button class="inputButton" onclick="setCalorieGoal()">Calorie Goal</button>
+            <button class="inputButton" onclick="resetCounter()">Reset</button>
+        </div>
         <footer><em>Saves the count with a cookie.</em><br><a target="_blank" href="https://www.calculator.net/calorie-calculator.html">Calculate Daily Calorie Needs</a></footer>
 
     </div>

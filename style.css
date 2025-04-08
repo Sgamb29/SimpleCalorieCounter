@@ -7,12 +7,18 @@ html, body {
 
 .container {
     min-height: 100%;
-    background: linear-gradient(45deg, cyan, white, cyan);
+    /* background: linear-gradient(45deg, grey, white, grey); */
+    background-color: rgb(127, 126, 126);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding-bottom: 20px;
+    color: white;
+}
+
+h1 {
+    text-decoration: underline;
 }
 
 .inputButtonContainer {
@@ -27,13 +33,14 @@ html, body {
     padding: 8px;
     font-size: x-large;
     border-radius: 25%;
-    border: solid 1px black;
-    background-color:cadetblue;
+    border: solid 3px white;
+    background-color:black;
+    color: white;
 }
 
 .inputButton:active {
     font-size: xx-large;
-    background-color: lightcyan;
+    background-color: grey;
 }
 
 #proteinRange {
@@ -51,4 +58,16 @@ label {
 
 .output {
     margin-bottom: 3px;
+}
+
+footer {
+    margin-top: 40px;
+}
+
+a {
+    margin: 5px;
+    border: 1px solid white;
+    padding: 4px;
+    background-color: gray;
+    border-radius: 25%;
 }

@@ -139,6 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateValues();
 
+        if (calorieGoal !== 2000) {
+            setCookie("calorieGoal", calorieGoal.toString(), 10000);
+        }
+
         makeTrafficCall();
 
 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calorie counting without the fuss. Just punch in the count for the day.">
-    <meta name="keywords" content="calories, counting, simple, tracking">
+    <meta name="description" content="Calorie counting. Fruit, veggie and grains servings. Protein Tracking and meal spacing timer. Free and no accounts required.">
+    <meta name="keywords" content="calories, counting, simple, protein, timer, servings, tracking, free">
     <link rel="stylesheet" href="style.css">
     <title>Simple Calorie Counter</title>
 </head>
@@ -47,6 +47,12 @@
             <button class="inputButton proteinButton" onclick="addToProtein(-1)">-</button>
             <input id="proteinRange" name="proteinRange" type="range" value="0" min="0" max="150">
             <button class="inputButton proteinButton" onclick="addToProtein(1)">+</button>
+        </div>
+        <label for="mealSpacingButton">Eating Spacing Timer:</label>
+        <div class="inputButtonContainer proteinSlideContainer">
+            <button name="mealSpacingButton" class="inputButton" onclick="startSpacingTimer()">Start</button>
+            <p id="spacingTimer"></p>
+            <button class="inputButton" onclick="stopTimer()">Stop</button>
         </div>
         <div class="inputButtonContainer">
             <button class="inputButton" onclick="setCalorieGoal()">Calorie Goal</button>

@@ -115,6 +115,53 @@ function setCalorieGoal() {
     }
 }
 
+let lastEatingTime = 0;
+let timerInterval = 0;
+
+function startSpacingTimer(cookieStart=false) {
+    if (!cookieStart) {
+        lastEatingTime = new Date();
+    } else {
+        lastEatingTime = new Date(lastEatingTime);
+    }
+    timerInterval = setInterval(() => {
+        const currentTime = new Date();
+        const timePassed = currentTime.getTime() - lastEatingTime.getTime();
+        const timeStr = getTimeStr(timePassed);
+        document.getElementById("spacingTimer").innerText = timeStr;
+    }, 1000);
+
+    setCookie("lastEatTime", lastEatingTime.toString(), 10000);
+}
+
+function stopTimer() {
+    if (timerInterval === 0) {
+        return;
+    }
+    clearInterval(timerInterval);
+    setCookie("lastEatTime", "", 10000);
+}
+
+function getTimeStr(mili) {
+    let seconds = mili / 1000;
+    let minutes = seconds / 60;
+    let hours = minutes / 60;
+    seconds = parseInt(seconds);
+    minutes = parseInt(minutes);
+    hours = parseInt(hours);
+    if (seconds >= 60) {
+        seconds = seconds - minutes * 60;
+    }
+    if (minutes >= 60) {
+        minutes = minutes - hours * 60;
+    }
+
+
+    const secStr = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    const minStr = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const hrStr = hours < 10 ? `0${hours}` : `${hours}`;
+    return `${hrStr}:${minStr}:${secStr}`;
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -126,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const g = getCookie("grains");
         const lastFetch = getCookie("lastFetch");
         const cGoal = getCookie("calorieGoal");
+        const eatTime = getCookie("lastEatTime");
 
         currentCount = calories !== "" ? parseInt(calories) : 0;
         proteinCount = p !== "" ? parseInt(p) : 0; 
@@ -133,6 +181,8 @@ document.addEventListener("DOMContentLoaded", () => {
         fruitCount = s !== "" ? parseInt(s) : 0;
         grainsCount = g !== "" ? parseInt(g) : 0;
         calorieGoal = cGoal !== "" ? parseInt(cGoal) : 2000;
+        lastEatingTime = eatTime !== "" ? eatTime : 0;
+        console.log(lastEatingTime);
 
 
         lastFetchCall = lastFetch !== "" ? parseInt(lastFetch) : "";
@@ -144,6 +194,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         makeTrafficCall();
+        if (lastEatingTime !== 0) {
+            startSpacingTimer(true);
+        }
 
 
     } catch (e) {

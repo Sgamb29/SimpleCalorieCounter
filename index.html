@@ -35,29 +35,11 @@
             <button class="inputButton" onclick="incrementCounter(200)">200</button>
             <button class="inputButton" onclick="incrementCounter(300)">300</button>
         </div>
-        <label for="servingsButtons">Servings: </label>
-        <div class="inputButtonContainer" name="servingsButtons">
-            <button id="vegButton" class="inputButton" onclick="addVeg()">Veg: 0</button>
-            <button id="fruitButton" class="inputButton" onclick="addFruit()">Fruit: 0</button>
-            <button id="grainButton" class="inputButton" onclick="addGrain()">Grains: 0</button>
-
-        </div>
-        <label id="proteinLabel" for="proteinRange">Protein: 0</label>
-        <div class="inputButtonContainer proteinSlideContainer">
-            <button class="inputButton proteinButton" onclick="addToProtein(-1)">-</button>
-            <input id="proteinRange" name="proteinRange" type="range" value="0" min="0" max="150">
-            <button class="inputButton proteinButton" onclick="addToProtein(1)">+</button>
-        </div>
-        <label for="mealSpacingButton">Eating Spacing Timer:</label>
-        <div class="inputButtonContainer proteinSlideContainer">
-            <button name="mealSpacingButton" class="inputButton" onclick="startSpacingTimer()">Start</button>
-            <p id="spacingTimer"></p>
-            <button class="inputButton" onclick="stopTimer()">Stop</button>
-        </div>
         <div class="inputButtonContainer">
             <button class="inputButton" onclick="setCalorieGoal()">Calorie Goal</button>
             <button class="inputButton" onclick="resetCounter()">Reset</button>
         </div>
+        <p id="lastInputTime"></p>
         <footer><a target="_blank" href="https://www.calculator.net/calorie-calculator.html">Calculate Daily Calorie Needs</a></footer>
 
     </div>

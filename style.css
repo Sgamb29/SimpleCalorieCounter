@@ -15,10 +15,19 @@ html, body {
     text-align: center;
     padding-bottom: 20px;
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1 {
+.title {
     text-decoration: underline;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+    font-size: large;
+    font-style: italic;
+}
+
+h2 {
+    font-style: italic
 }
 
 .inputButtonContainer {
@@ -39,8 +48,11 @@ h1 {
 }
 
 .inputButton:active {
-    font-size: xx-large;
     background-color: grey;
+}
+
+.num {
+    font-size: xx-large;
 }
 
 #proteinRange {

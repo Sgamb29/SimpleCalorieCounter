@@ -1,4 +1,5 @@
 const output = document.getElementById("output");
+const inputDisplay = document.getElementById("inputDisplay");
 let toAdd = true;
 let lastInput = "";
 
@@ -7,13 +8,54 @@ document.getElementById("addToggle").style.backgroundColor = "green";
 let currentCount = 0;
 let calorieGoal = 2000;
 let lastFetchCall = "";
+let numberEntered = ""; // For using the calculator UI
 
-function incrementCounter(amount) {
-    currentCount += toAdd ? amount : -amount;
-    output.innerText = currentCount;
-    document.getElementById("goalOutput").innerText = (calorieGoal - currentCount).toString() + " calories left";
+function incrementCounter(amount=0) {
+    if (amount != 0) {
+        currentCount += toAdd ? amount : -amount;
+    }
+    if (numberEntered.length >= 1) {
+        currentCount += toAdd ? parseInt(numberEntered) : -parseInt(numberEntered);
+        numberEntered = "";
+        inputDisplay.innerText = "--";
+    }
+    // output.innerText = currentCount;
+    // document.getElementById("goalOutput").innerText = (calorieGoal - currentCount).toString() + " calories left";
     setCookie("calories", currentCount, 10000);
     setLastInputTime();
+    updateValues();
+}
+
+function isValidNumber(num) {
+    const valid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    let isValid = false;
+    valid.forEach((digit) => {
+        if (num.toString() === digit) {
+            isValid = true;
+        }
+    });
+    return isValid;
+}
+
+function enterNumber(num) {
+    if (numberEntered.length >= 5) {
+        return;
+    }
+    if (isValidNumber(num)) {
+        numberEntered = numberEntered + num.toString();
+        inputDisplay.innerText = numberEntered;
+    } 
+}
+
+function backSpace() {
+    if (numberEntered.length > 1) {
+        numberEntered = numberEntered.slice(0, numberEntered.length - 1);
+    } else {
+        numberEntered = "";
+        inputDisplay.innerText = "--";
+        return;
+    }
+    inputDisplay.innerText = numberEntered;
 }
 
 function toggleAdd() {
@@ -37,9 +79,9 @@ function resetCounter() {
 }
 
 function updateValues() {
-    document.getElementById("goalOutput").innerText = (calorieGoal - currentCount) + " calories left";
+    document.getElementById("goalOutput").innerText = "Remaining: " + (calorieGoal - currentCount);
     document.getElementById("lastInputTime").innerText = lastInput;
-    output.innerText = currentCount;
+    output.innerText = "Calories: " + currentCount;
 }
 
 function setCalorieGoal() {
@@ -71,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateValues();
 
-        setCookie("calorieGoal", calorieGoal.toString(), 100);
+        setCookie("calorieGoal", calorieGoal.toString(), 1000);
         setCookie("calories", currentCount.toString(), 100);
         setCookie("lastInput", lastInput, 100);
 

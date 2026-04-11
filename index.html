@@ -3,37 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calorie counting. Fruit, veggie and grains servings. Protein Tracking and meal spacing timer. Free and no accounts required.">
-    <meta name="keywords" content="calories, counting, simple, protein, timer, servings, tracking, free">
+    <meta name="description" content="Simple Calorie Counter">
+    <meta name="keywords" content="calories, counting, simple, tracking">
     <link rel="stylesheet" href="style.css">
     <title>Simple Calorie Counter</title>
 </head>
 <body>
     <div class="container">
-        <h1>Calorie Counter</h1>
-        <a href="https://sgambapps.com">More Apps</a>
+        <p class="title">Calorie Counter</p>
         <h2 id="output" class="output">0</h2>
-        <h3 id="goalOutput" class="output">2000 calories left</h3>
+        <h2 id="goalOutput" class="output">2000 calories left</h2>
+        <h2 id="inputDisplay">--</h2>
         <div class="inputButtonContainer">
             <button id="addToggle" class="inputButton" onclick="toggleAdd()">+</button>
             <button id="subtractToggle" class="inputButton" onclick="toggleAdd()">-</button>
-
         </div>
         <div class="inputButtonContainer">
-            <button class="inputButton" onclick="incrementCounter(5)">5</button>
-            <button class="inputButton" onclick="incrementCounter(10)">10</button>
+            <button class="inputButton num" onclick="enterNumber(1)">1</button>
+            <button class="inputButton num" onclick="enterNumber(2)">2</button>
+            <button class="inputButton num" onclick="enterNumber(3)">3</button>
         </div>
         <div class="inputButtonContainer">
-            <button class="inputButton" onclick="incrementCounter(25)">25</button>
-            <button class="inputButton" onclick="incrementCounter(50)">50</button>
+            <button class="inputButton num" onclick="enterNumber(4)">4</button>
+            <button class="inputButton num" onclick="enterNumber(5)">5</button>
+            <button class="inputButton num" onclick="enterNumber(6)">6</button>
         </div>
         <div class="inputButtonContainer">
-            <button class="inputButton" onclick="incrementCounter(100)">100</button>
-            <button class="inputButton" onclick="incrementCounter(150)">150</button>
+            <button class="inputButton num" onclick="enterNumber(7)">7</button>
+            <button class="inputButton num" onclick="enterNumber(8)">8</button>
+            <button class="inputButton num" onclick="enterNumber(9)">9</button>
         </div>
         <div class="inputButtonContainer">
-            <button class="inputButton" onclick="incrementCounter(200)">200</button>
-            <button class="inputButton" onclick="incrementCounter(300)">300</button>
+            <button class="inputButton num" onclick="enterNumber(0)">0</button>
+        </div>
+        <div class="inputButtonContainer">
+            <button class="inputButton" onclick="backSpace()"><-</button>
+            <button class="inputButton" onclick="incrementCounter()">Enter</button>
         </div>
         <div class="inputButtonContainer">
             <button class="inputButton" onclick="setCalorieGoal()">Calorie Goal</button>
@@ -41,6 +46,8 @@
         </div>
         <p id="lastInputTime"></p>
         <footer><a target="_blank" href="https://www.calculator.net/calorie-calculator.html">Calculate Daily Calorie Needs</a></footer>
+        <br><br>
+        <a href="https://sgambapps.com">More Apps</a>
 
     </div>
     <script src="script.js"></script>

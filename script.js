@@ -9,13 +9,20 @@ let currentCount = 0;
 let calorieGoal = 2000;
 let lastFetchCall = "";
 let numberEntered = ""; // For using the calculator UI
+let historyList = [];
 
 function incrementCounter(amount=0) {
+    // It appears I'm not using this first if statement anymore.
     if (amount != 0) {
         currentCount += toAdd ? amount : -amount;
     }
     if (numberEntered.length >= 1) {
-        currentCount += toAdd ? parseInt(numberEntered) : -parseInt(numberEntered);
+        // Change number to positive or negative based on boolean.
+        n = toAdd ? parseInt(numberEntered) : -parseInt(numberEntered);
+        // Add to current count & save to history.
+        currentCount += n;
+        saveToList(n)
+        // Reset UI
         numberEntered = "";
         inputDisplay.innerText = "--";
     }
@@ -75,6 +82,7 @@ function toggleAdd() {
 function resetCounter() {
     currentCount = 0;
     updateValues();
+    resetHistory();
     setCookie("calories", currentCount, 10000);
 }
 
@@ -97,17 +105,63 @@ function setCalorieGoal() {
     }
 }
 
+const historyKey = "history";
+function saveToList(num) {
+    historyList.push(num);
+    const s = historyList.join(",");
+    setCookie(historyKey, s, 10000)
+    const hl = document.getElementById("historyList");
+    if (!hl.hidden) {
+        hl.innerText = reverseCopy().join("\n");
+    }
+}
+
+function resetHistory() {
+    const hl = document.getElementById("historyList");
+    hl.innerText = "";
+    hl.hidden = true;
+    historyList = [];
+    setCookie(historyKey, "", 10000);
+}
+
+function toggleList() {
+    if (historyList.length === 0) {
+        return;
+    }
+    const historyOutput = document.getElementById("historyList");
+    if (historyOutput.hidden) {
+        historyOutput.hidden = false;
+        historyOutput.innerText = reverseCopy().join("\n");
+    } else {
+        historyOutput.hidden = true;
+    }
+}
+
+function reverseCopy() {
+    const l = historyList.length;
+    if (l === 0) {
+        return;
+    }
+    let r = [];
+    for(let i = l - 1; i >=0; i--) {
+        r.push(historyList[i]);
+    }
+    return r;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     try {
         const calories = getCookie("calories");
         const lastFetch = getCookie("lastFetch");
         const cGoal = getCookie("calorieGoal");
         const lI = getCookie("lastInput");
+        const h = getCookie(historyKey);
 
         currentCount = calories !== "" ? parseInt(calories) : 0;
         calorieGoal = cGoal !== "" ? parseInt(cGoal) : 2000;
         lastFetchCall = lastFetch !== "" ? parseInt(lastFetch) : "";
         lastInput = lI !== "" ? lI : "";
+        historyList = h !== "" ? h.split(",") : [];
         
         
 

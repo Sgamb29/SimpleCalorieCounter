@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simple Calorie Counter">
+    <meta name="description" content="Calorie counting without the hassle.">
     <meta name="keywords" content="calories, counting, simple, tracking">
     <link rel="stylesheet" href="style.css">
     <title>Simple Calorie Counter</title>
@@ -44,6 +44,8 @@
             <button class="inputButton" onclick="setCalorieGoal()">Calorie Goal</button>
             <button class="inputButton" onclick="resetCounter()">Reset</button>
         </div>
+        <button class="inputButton toggle" onclick="toggleList()">Input History</button>
+        <p id="historyList" hidden></p>
         <p id="lastInputTime"></p>
         <footer><a target="_blank" href="https://www.calculator.net/calorie-calculator.html">Calculate Daily Calorie Needs</a></footer>
         <br><br>
